@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "doitforme",
+  "version": "1.0",
+  "description": "record your mouse move",
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ]
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "options_page": "options.html",
+  "browser_action": {
+    "default_title": "scrolling,shortcut: alt+c"
+  },
+  "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+  "permissions": [
+    "*://*/*",
+    "<all_urls>",
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/speedo.js"
+      ],
+      "run_at":
+      "document_start"
+    }
+  ]
+}
